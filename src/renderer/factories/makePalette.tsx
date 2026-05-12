@@ -1,4 +1,4 @@
-import { Palette } from "../types.ts";
+import { Palette } from "../types";
 
 export default function makePalette<T extends Record<string, string>>(
   colors: T,

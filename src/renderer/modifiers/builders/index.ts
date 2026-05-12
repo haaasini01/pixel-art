@@ -1,6 +1,6 @@
-import Combine, { CombineInstruction } from "./combine.ts";
-import Move, { MoveInstruction } from "./move.ts";
-import { Shape } from "../../types.ts";
+import Combine, { CombineInstruction } from "./combine";
+import Move, { MoveInstruction } from "./move";
+import { Shape } from "../../types";
 
 export { Combine, Move };
 

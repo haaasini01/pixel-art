@@ -1,4 +1,4 @@
-import { Color, Placement, Point } from "../types.ts";
+import { Color, Placement, Point } from "../types";
 
 export type Bounds = {
   minX: number;

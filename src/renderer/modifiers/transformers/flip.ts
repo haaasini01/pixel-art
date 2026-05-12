@@ -1,6 +1,6 @@
-import { Placement, Point, Render, Shape } from "../../types.ts";
-import { Transformer } from "./index.ts";
-import { render } from "../index.ts";
+import { Placement, Point, Render, Shape } from "../../types";
+import Transformer from "./Transformer";
+import { render } from "../index";
 
 export type FlipMode = "x" | "y" | "xy";
 

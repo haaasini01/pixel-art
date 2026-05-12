@@ -1,6 +1,6 @@
-import { Instruction, Placement, Point, Render, Shape } from "../../types.ts";
-import { Transformer } from "./index.ts";
-import { place, render } from "../index.ts";
+import { Instruction, Placement, Point, Render, Shape } from "../../types";
+import Transformer from "./Transformer";
+import { place, render } from "../index";
 
 export type TranslateParams = {
   offset: Point;

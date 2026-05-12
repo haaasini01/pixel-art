@@ -1,6 +1,6 @@
-import { Builder } from "./index.ts";
-import { Instruction, Placement, Render, Shape } from "../../types.ts";
-import render from "../render.ts";
+import { Builder } from "./index";
+import { Instruction, Placement, Render, Shape } from "../../types";
+import render from "../render";
 
 export type CombineParams = Record<string, never>;
 

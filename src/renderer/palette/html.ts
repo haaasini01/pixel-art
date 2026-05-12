@@ -1,4 +1,4 @@
-import makePalette from "../factories/makePalette.ts";
+import makePalette from "../factories/makePalette";
 
 export default makePalette({
   indianRed: "#CD5C5C",

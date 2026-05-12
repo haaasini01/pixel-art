@@ -1,33 +1,18 @@
 import { Group as KonvaGroup, Layer, Rect, Stage } from "react-konva";
 import { ReactNode } from "react";
 
-import { Shape, Figure } from "../renderer/types.ts";
+import { Shape } from "../renderer/types";
 
 export type KonvaRendererProps = {
-  scene: Figure;
+  scene: Shape;
   canvasWidth: number;
   canvasHeight: number;
   scale?: number;
   addGrid?: boolean;
 };
 
-const renderGroup = (figure: Figure, key: number, scale: number): ReactNode => {
-  if (figure.type === "group") {
-    const { anchor, figures } = figure;
-    return (
-      <KonvaGroup key={key} x={anchor.x * scale} y={anchor.y * scale}>
-        {figures.map((subGroup, index) => renderGroup(subGroup, index, scale))}
-      </KonvaGroup>
-    );
-  } else if (figure.type === "shape") {
-    return renderShape(figure, key, scale);
-  } else {
-    return null;
-  }
-};
-
 const renderShape = (shape: Shape, key: number, scale: number): ReactNode => {
-  const { pixels } = shape;
+  const pixels = shape.render().pixels;
   return (
     <KonvaGroup key={key} x={0} y={0}>
       {pixels.toPlacements().map((pixel, index) => (
@@ -66,7 +51,7 @@ function KonvaRenderer({ canvasWidth, canvasHeight, scale = 1, scene, addGrid = 
         {/* Grid */}
         {addGrid && <Grid width={canvasWidth} height={canvasHeight} scale={scale} />}
         {/* Scene */}
-        {renderGroup(scene, 0, scale)}
+        {renderShape(scene, 0, scale)}
       </Layer>
     </Stage>
   );

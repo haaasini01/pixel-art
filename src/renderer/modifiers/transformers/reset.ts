@@ -5,10 +5,10 @@ import {
   Point,
   Render,
   Shape,
-} from "../../types.ts";
-import { Transformer } from "./index.ts";
-import { Bounds } from "../../core/PixelMap.ts";
-import { place, render } from "../index.ts";
+} from "../../types";
+import Transformer from "./Transformer";
+import { Bounds } from "../../core/PixelMap";
+import { place, render } from "../index";
 
 function center(a: number, b: number): number {
   return Math.ceil((a + b) / 2);

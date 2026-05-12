@@ -1,32 +1,32 @@
 import "./App.css";
 
 import KonvaRenderer from "./components/KonvaRenderer";
-import { Figure } from "./renderer/types";
-import shapes from "./renderer/modifiers/shapes";
-import colors from "./renderer/palettes/html.ts";
-import { combine, point } from "./renderer/factories";
-import reset from "./renderer/modifiers/builders/reset.ts";
-import { translate } from "./renderer/modifiers/transformers";
-import pixel from "./renderer/modifiers/shapes/pixel.ts";
+import shapes from "./renderer/modifiers/primitives";
+import colors from "./renderer/palette/html";
+import point from "./renderer/modifiers/point";
+import Combine from "./renderer/modifiers/builders/combine";
+import Reset from "./renderer/modifiers/transformers/reset";
+import Translate from "./renderer/modifiers/transformers/translate";
+import Pixel from "./renderer/modifiers/primitives/pixel";
 
-const rect = shapes.rect.fromPoints(point(0, 0), point(8, 8), colors.red);
-const fig = reset(rect, point(1, 1));
-console.log(rect.pixels);
-console.log(fig.pixels);
+const rect = new shapes.Rect(8, 8, "top-left", colors.red);
+const fig = new Reset({ shape: rect, pivot: point(1, 1) });
+console.log(rect.render().pixels);
+console.log(fig.render().pixels);
 // move fig 10, 10
-const moved = translate(fig, point(10, 10));
+const moved = new Translate({ shape: fig, offset: point(10, 10) });
 // draw one pixel at 9, 9
-const px = pixel(colors.blue, point(9, 9));
+const px = new Pixel(colors.blue, point(9, 9));
 // combine the two
-const scene: Figure = combine(moved, px);
+const combined = new Combine(moved, px);
 
 function App() {
   return (
     <KonvaRenderer
       canvasWidth={50}
       canvasHeight={50}
-      scene={scene}
       scale={20}
+      scene={combined}
     />
   );
 }

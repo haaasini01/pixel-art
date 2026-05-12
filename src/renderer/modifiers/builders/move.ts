@@ -1,6 +1,6 @@
-import { Instruction, Point, Render, Shape } from "../../types.ts";
-import { Builder } from "./index.ts";
-import render from "../render.ts";
+import { Instruction, Point, Render, Shape } from "../../types";
+import { Builder } from "./index";
+import render from "../render";
 
 export type MoveParams = {
   offset: Point;
