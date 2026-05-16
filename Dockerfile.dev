@@ -1,0 +1,17 @@
+# Development Docker image for local container-based development
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source files
+COPY . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# Run dev server on all interfaces for container access
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
