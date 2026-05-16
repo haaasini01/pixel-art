@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pixel-art
+  namespace: pixel-art
+spec:
+  type: ClusterIP
+  selector:
+    app: pixel-art
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: http
