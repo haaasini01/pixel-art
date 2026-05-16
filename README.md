@@ -20,6 +20,10 @@ Useful scripts
 - `lint` — run ESLint
 - `prettier:fix` — format code with Prettier
 
+Kubernetes manifests
+- `manifests/` — Kubernetes YAML resources for deploying the app
+  - `manifests/README.md` — details about the Kubernetes manifests
+
 Project layout (key paths)
 - `src/` — application source
 - `src/components/` — UI components (Konva renderer)
